@@ -1,14 +1,21 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import TabRoutes from './tab.routes';
 import Profile from '../screens/Profile';
+import Register from '../screens/Register';
+import Login from '../screens/Login';
 
 const Stack = createNativeStackNavigator();
 
-export default function StackRoutes() {
+interface StackRoutesProps {
+    initialRouteName: 'profile' | 'register' | 'login';
+}
+
+export default function StackRoutes({ initialRouteName }: StackRoutesProps) {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="home" component={Profile} />
+        <Stack.Navigator
+            initialRouteName={initialRouteName}
+            screenOptions={{ headerShown: false }}
+        >
+            <Stack.Screen name="profile" component={Profile} />
         </Stack.Navigator>
     );
 }
