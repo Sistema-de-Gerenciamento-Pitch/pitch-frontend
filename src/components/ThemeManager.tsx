@@ -9,7 +9,6 @@ import { useAppDispatch } from '../utils/useAppDispatch';
 
 const StyledThemeContainer = styled.KeyboardAvoidingView<CustomThemeProps>`
     flex: 1;
-    padding: ${(props) => props.theme.spacing.xlarge};
     background-color: ${(props) => props.theme.secondaryBackground};
 `;
 

@@ -20,7 +20,7 @@ export default function Login() {
         useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
     const handleNavigateToHome = () => {
-        navigation.navigate('homeStack');
+        navigation.navigate('home');
     };
 
     const handleNavigateToRegister = () => {

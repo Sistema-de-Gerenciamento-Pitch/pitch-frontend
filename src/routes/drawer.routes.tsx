@@ -27,7 +27,12 @@ export default function DrawerRoutes() {
                         backgroundColor: theme.secondaryBackground,
                     },
                     headerStyle: {
-                        backgroundColor: theme.secondaryBackground,
+                        backgroundColor: theme.background,
+                        height: 72,
+                    },
+                    headerTitleStyle: {
+                        fontFamily: 'LexendDeca-Bold',
+                        fontSize: 24,
                     },
                     headerTitleAlign: 'center',
                     headerTintColor: theme.primaryText,
@@ -59,8 +64,8 @@ export default function DrawerRoutes() {
                 }}
             />
             <Drawer.Screen
-                name="loginStack"
-                component={LoginStackScreen}
+                name="logoutStack"
+                component={LogoutStackScreen}
                 options={{
                     drawerIcon: ({ color, size }) => (
                         <Feather name="log-out" color={color} size={size} />
@@ -76,6 +81,6 @@ function ProfileStackScreen() {
     return <StackRoutes initialRouteName="profile" />;
 }
 
-function LoginStackScreen() {
+function LogoutStackScreen() {
     return <StackRoutes initialRouteName="login" />;
 }

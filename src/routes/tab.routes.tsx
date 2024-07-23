@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Feather from '@expo/vector-icons/Feather';
-import Home from '../screens/Home';
+import Home from '../screens/home';
 import New from '../screens/New';
 import { useSelector } from 'react-redux';
 import { getThemeMode } from '../selectors/getThemeMode';
@@ -18,28 +18,28 @@ export default function TabRoutes() {
                 return {
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: theme.secondaryBackground,
+                        backgroundColor: theme.background,
                         borderTopWidth: 0,
                         shadowOpacity: 0,
                         alignItems: 'center',
-                        height: 70,
+                        height: 80,
                     },
                     tabBarActiveTintColor: theme.support1,
                     tabBarInactiveTintColor: theme.primaryText,
                     tabBarLabelStyle: {
-                        paddingBottom: 10,
+                        paddingBottom: 15,
                         paddingTop: 6,
-                        marginTop: -10,
+                        marginTop: -5,
                         fontFamily: 'Roboto-Medium',
                     },
                     tabBarIconStyle: {
-                        marginBottom: -10,
+                        marginBottom: -15,
                     },
                 };
             }}
         >
             <Tab.Screen
-                name="home"
+                name="homeScreen"
                 component={Home}
                 options={{
                     tabBarIcon: ({ color, size }) => (
