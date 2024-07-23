@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
-import AuthStackScreen from './authStackScreen.routes';
+import AuthStackRoutes from './authStack.routes';
 
 export default function Routes() {
     const isAuthenticated = false;
@@ -33,7 +33,7 @@ export default function Routes() {
     return (
         <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
             <NavigationContainer>
-                {isAuthenticated ? <DrawerRoutes /> : <AuthStackScreen />}
+                {isAuthenticated ? <DrawerRoutes /> : <AuthStackRoutes />}
             </NavigationContainer>
         </View>
     );

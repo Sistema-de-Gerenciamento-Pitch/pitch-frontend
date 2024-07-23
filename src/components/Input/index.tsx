@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { TextInputProps } from 'react-native';
 import { IconButton, InputContainer, StyledInput } from './Input.styles';
 import { Feather } from '@expo/vector-icons';
@@ -11,11 +11,7 @@ interface InputProps extends TextInputProps {
     iconOnPress?: () => void;
 }
 
-export const Input: React.FC<InputProps> = ({
-    icon,
-    iconOnPress,
-    ...props
-}) => {
+export const Input: FC<InputProps> = ({ icon, iconOnPress, ...props }) => {
     const { themeMode } = useSelector(getThemeMode);
     const theme = themeMode === 'dark' ? dark : light;
     return (
