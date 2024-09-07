@@ -1,4 +1,4 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 import { Feather } from '@expo/vector-icons';
 import TabRoutes from './tab.routes';
 import StackRoutes from './stack.routes';
@@ -44,8 +44,8 @@ export default function DrawerRoutes() {
             }}
         >
             <Drawer.Screen
-                name="homeStack"
-                component={TabRoutes}
+                name="stackRoutes"
+                component={StackRoutes}
                 options={{
                     drawerIcon: ({ color, size }) => (
                         <Feather name="home" color={color} size={size} />
@@ -53,34 +53,6 @@ export default function DrawerRoutes() {
                     drawerLabel: 'Início',
                 }}
             />
-            <Drawer.Screen
-                name="profileStack"
-                component={ProfileStackScreen}
-                options={{
-                    drawerIcon: ({ color, size }) => (
-                        <Feather name="user" color={color} size={size} />
-                    ),
-                    drawerLabel: 'Meu perfil',
-                }}
-            />
-            <Drawer.Screen
-                name="logoutStack"
-                component={LogoutStackScreen}
-                options={{
-                    drawerIcon: ({ color, size }) => (
-                        <Feather name="log-out" color={color} size={size} />
-                    ),
-                    drawerLabel: 'Sair',
-                }}
-            />
         </Drawer.Navigator>
     );
-}
-
-function ProfileStackScreen() {
-    return <StackRoutes initialRouteName="profile" />;
-}
-
-function LogoutStackScreen() {
-    return <StackRoutes initialRouteName="login" />;
 }

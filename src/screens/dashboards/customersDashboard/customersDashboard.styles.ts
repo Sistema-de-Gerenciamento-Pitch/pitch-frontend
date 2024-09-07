@@ -4,7 +4,7 @@ export const Container = styled.View`
     background-color: ${(props) => props.theme.secondaryBackground};
     padding: ${(props) => props.theme.spacing.xlarge};
     height: 100%;
-    gap: 40px;
+    gap: ${(props) => props.theme.spacing.medium};
     flex: 1;
 `;
 
@@ -26,4 +26,7 @@ export const SectionHeader = styled.View`
     margin-bottom: 16px;
 `;
 
-export const SectionBody = styled.View``;
+export const Form = styled.View`
+    gap: ${(props) => props.theme.spacing.small};
+    margin-top: ${(props) => props.theme.spacing.medium};
+`;

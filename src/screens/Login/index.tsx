@@ -12,16 +12,14 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useAuth } from '../../hooks/auth';
 
 export default function Login() {
+    const { login } = useAuth();
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
     const navigation =
         useNavigation<NativeStackNavigationProp<ParamListBase>>();
-
-    const handleNavigateToHome = () => {
-        navigation.navigate('home');
-    };
 
     const handleNavigateToRegister = () => {
         navigation.navigate('register' as never);
@@ -46,11 +44,7 @@ export default function Login() {
                     iconOnPress={() => setIsPasswordVisible(!isPasswordVisible)}
                     secureTextEntry={!isPasswordVisible}
                 />
-                <Button
-                    title="Acessar"
-                    icon="arrow-right"
-                    onPress={handleNavigateToHome}
-                />
+                <Button title="Acessar" icon="arrow-right" onPress={login} />
             </Form>
             <Footer>
                 <SecondaryText>Ainda não possui uma conta?</SecondaryText>

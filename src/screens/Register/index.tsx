@@ -13,16 +13,14 @@ import { Button } from '../../components/Button';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BackButton } from '../../components/BackButton';
+import { useAuth } from '../../hooks/auth';
 
 export default function Register() {
+    const { login } = useAuth();
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
     const navigation =
         useNavigation<NativeStackNavigationProp<ParamListBase>>();
-
-    const handleNavigateToHome = () => {
-        navigation.navigate('home');
-    };
 
     const handleNavigateToRegister = () => {
         navigation.navigate('login' as never);
@@ -30,7 +28,6 @@ export default function Register() {
 
     return (
         <Container>
-            <BackButton top={56} left={32} />
             <Form>
                 <SecondaryText>Crie sua conta em poucos passos</SecondaryText>
                 <Input
@@ -52,7 +49,7 @@ export default function Register() {
                 <Button
                     title="Criar conta"
                     icon="arrow-right"
-                    onPress={handleNavigateToHome}
+                    onPress={login}
                 />
             </Form>
             <Footer>

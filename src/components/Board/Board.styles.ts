@@ -27,7 +27,7 @@ export const ColumnBody = styled.View`
 
 export const Card = styled.TouchableOpacity`
     padding: ${(props) => props.theme.spacing.medium};
-    margin-bottom: 10px;
+    margin-bottom: ${(props) => props.theme.spacing.small};
     border-radius: 5px;
     background-color: ${(props) => props.theme.secondaryBackground};
     border: 0.4px solid ${(props) => props.theme.support1};

@@ -118,7 +118,7 @@ export const Board = () => {
     };
 
     return (
-        <ScrollView horizontal showsHorizontalScrollIndicator>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Container>
                 {data.board.columns.map((column) => (
                     <Column key={column.id}>
@@ -145,7 +145,7 @@ export const Board = () => {
                                     </Card>
                                 )}
                                 keyExtractor={(item: Task) => item.id}
-                                showsVerticalScrollIndicator
+                                showsVerticalScrollIndicator={false}
                             />
                         </ColumnBody>
                     </Column>

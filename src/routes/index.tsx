@@ -6,9 +6,9 @@ import { useCallback } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
 import AuthStackRoutes from './authStack.routes';
+import { useAuth, AuthProvider } from '../hooks/auth';
 
 export default function Routes() {
-    const isAuthenticated = false;
     const [fontsLoaded] = useFonts({
         'LexendDeca-Regular': require('../../assets/fonts/LexendDeca-Regular.ttf'),
         'LexendDeca-Medium': require('../../assets/fonts/LexendDeca-Medium.ttf'),
@@ -30,6 +30,17 @@ export default function Routes() {
     if (!fontsLoaded) {
         return null;
     }
+
+    return (
+        <AuthProvider>
+            <RootNavigator onLayoutRootView={onLayoutRootView} />
+        </AuthProvider>
+    );
+}
+
+function RootNavigator({ onLayoutRootView }: { onLayoutRootView: () => void }) {
+    const { isAuthenticated } = useAuth();
+
     return (
         <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
             <NavigationContainer>

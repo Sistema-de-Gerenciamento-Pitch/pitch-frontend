@@ -1,23 +1,11 @@
 import styled from 'styled-components/native';
 
-interface BackButtonProps {
-    top?: number;
-    right?: number;
-    bottom?: number;
-    left?: number;
-}
-
-export const BackButtonContainer = styled.TouchableOpacity<BackButtonProps>`
-    position: absolute;
-    ${(props) => props.top !== undefined && `top: ${props.top}px;`}
-    ${(props) => props.right !== undefined && `right: ${props.right}px;`}
-    ${(props) => props.bottom !== undefined && `bottom: ${props.bottom}px;`}
-    ${(props) => props.left !== undefined && `left: ${props.left}px;`}
-
+export const BackButtonContainer = styled.TouchableOpacity`
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: ${(props) => props.theme.spacing.small};
+    padding: ${(props) => props.theme.spacing.small};
+    gap: 2px;
 `;
 
 export const SecondaryText = styled.Text`
@@ -27,6 +15,6 @@ export const SecondaryText = styled.Text`
 `;
 
 export const IconButton = styled.TouchableOpacity`
-    padding-left: ${(props) => props.theme.spacing.small};
     color: ${(props) => props.theme.secondaryText};
+    margin-top: 2px;
 `;
